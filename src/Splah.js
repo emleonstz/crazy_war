@@ -16,25 +16,28 @@ class Splash extends Phaser.Scene {
     var logo = this.add.image(0, 0, 'logo');
     logo.setScale(0.5);
     
-   var text = this.add.text(0, 0, 'Hello, Phaser!', { font: '11px Arial', fill: '#ffffff' });
+   var text = this.add.text(0, 0, 'Loading..', { font: '10px Arial', fill: '#ffffff' }); 
+   
+   //var brand = this.add.text(0, 0, 'Designed by Emleons Software ©2024', { font: '10px Arial', fill: '#ffffff' });
     
     var centerX = this.cameras.main.centerX;
     var centerY = this.cameras.main.centerY;
     //this.showGriding();
-    this.showNumbers();
+    //this.showNumbers();
     this.placeAt(2,2,logo);
     this.setScalling(logo);
-    this.placeAtIndex(0,text);
-    this.setScalling(text);
+    this.placeAtIndex(17,text);
+    
+    
     this.tweens.add({
       targets: logo,
-      y: centerY - 100,
-      duration: 2000,
+      y: centerY - 50,
+      duration: 500,
       ease: 'Power2',
       yoyo: true,
       loop: -1
     });
-    
+    this.time.delayedCall(5000,this.startNextScene,[],this);
     /*this.tweens.add({
       targets: abcText,
       scaleX: 1.1,
@@ -90,11 +93,14 @@ class Splash extends Phaser.Scene {
   placeAtIndex(index, obj) {
     var yy = Math.floor(index / this.cols);
     var xx = index - (yy * this.cols);
-    this.placeAt(xx, yy, obj);
+    this.placeAt(xx- 0.2, yy, obj);
   }
   
   setScalling(obj){
     obj.displayWidth = game.config.width / 5;
     obj.scaleY = obj.scaleX;
+  }
+  startNextScene() {
+    this.scene.start('StartLevel');
   }
 }

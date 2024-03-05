@@ -7,13 +7,13 @@ var config = {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     scene: [
-        StartLevel
+        Splash , StartLevel
       ],
     physics: {
         default: 'arcade',
         arcade: {
             gravity: { y: 300 },
-            debug: true
+            debug: false
         }
     }
 };
@@ -36,3 +36,15 @@ function resize() {
         canvas.height = windowHeight;
     }
 }
+window.addEventListener('load', function() {
+  if (window.innerHeight > window.innerWidth) {
+    PleaseRotate({
+      onlyMobile: true,
+      message: "Please rotate your device to landscape mode."
+    });
+  }
+});
+
+window.addEventListener('orientationchange', function() {
+      window.location.reload();
+    });
