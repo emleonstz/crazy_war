@@ -44,7 +44,7 @@ class StartLevel extends Phaser.Scene {
     const gameHeight = this.cameras.main.height;
     this.bg = this.add.image(0, 0, 'bg').setOrigin(0, 0).setDisplaySize(gameWidth, gameHeight);
 
-    // Define level data
+    // Define map data
     const level = [
         [0,0,0,0,0,0,0,0,0,0,0,32,33,34,0,0],
         [0,26,0,24,0,0,0,22,0,0,0,0,38,0,0,0],
