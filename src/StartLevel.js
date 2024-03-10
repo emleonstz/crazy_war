@@ -40,8 +40,6 @@ class StartLevel extends Phaser.Scene {
   }
 
   create() { 
-    // Add background image
-    // Assuming 'this.bg' is your background image
     const gameWidth = this.cameras.main.width;
     const gameHeight = this.cameras.main.height;
     this.bg = this.add.image(0, 0, 'bg').setOrigin(0, 0).setDisplaySize(gameWidth, gameHeight);
